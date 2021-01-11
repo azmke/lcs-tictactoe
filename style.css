@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.wrapper {
+	max-width: 600px;
+	margin: 50px auto;
+}
+
+h2 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.flex {
+	display: flex;
+	margin-bottom: 0.5em;
+}
+
+	.flex > * {
+		flex: 1;
+	}
+
+button {
+	display: block;
+	padding: 0.5em 1em;
+	width: 120px;
+}
+
+#playground {
+	display: block;
+	margin: auto;
+	margin-bottom: 0.5em;
+	border: 2px solid #000000;
+	background-color: white;
+}
