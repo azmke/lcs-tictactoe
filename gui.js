@@ -1,10 +1,13 @@
 const ICON = {
-	user: "😀",
-	computer: "🤖"
+	user: "❌",
+	computer: "⚪"
 };
 
 const ELEMENTS = {
 	canvas: document.getElementById("playground"),
+
+	winner_notice: document.getElementById("winner-notice"),
+	button_newgame: document.getElementById("button-newgame"),
 
 	learnrate: document.getElementById("learnrate"),
 	learnrate_value: document.getElementById("learnrate-value"),
@@ -28,6 +31,8 @@ const ELEMENTS = {
 const ctx = ELEMENTS.canvas.getContext("2d");
 
 const paint = () => {
+	ctx.clearRect(0, 0, 300, 300);
+
 	ctx.beginPath();
 	ctx.moveTo(0, 100);
 	ctx.lineTo(300, 100);
@@ -97,6 +102,19 @@ ELEMENTS.button_train.addEventListener("click", (event) => {
 		`Time:		${(duration / 1000).toFixed(2)} s`);*/
 });
 
+ELEMENTS.button_newgame.addEventListener("click", (event) => {
+	GAME.state = Array(10).join(" ");
+	GAME.turn = GAME.turn == PLAYER.user ? PLAYER.computer : PLAYER.user;
+
+	if (GAME.turn == PLAYER.computer) {
+		move_computer();
+	}
+
+	ELEMENTS.winner_notice.hidden = true;
+
+	paint();
+})
+
 ELEMENTS.canvas.addEventListener("click", (event) => {
 	let x = event.pageX - ELEMENTS.canvas.offsetLeft,
 		y = event.pageY - ELEMENTS.canvas.offsetTop;
@@ -104,8 +122,28 @@ ELEMENTS.canvas.addEventListener("click", (event) => {
 	let pos_i = Math.floor(y / 100) * 3 + Math.floor(x / 100);
 	console.log(`Click:\nX:\t\t${x}\nY:\t\t${y}\nPos:\t${pos_i}`);
 
-	if (GAME.state[pos_i] == " ") {
+	if (!ELEMENTS.winner_notice.hidden) {
+		console.error("Error: Game is finished")
+	} else if (GAME.state[pos_i] == " ") {
 		GAME.state = GAME.state.replaceAt(pos_i, PLAYER.user);
+
+		let result = get_result();
+		if (result == RESULT.running) {
+			move_computer();
+			result = get_result();
+		}
+
+		if (result == RESULT.computer) {
+			ELEMENTS.winner_notice.innerHTML = "Computer won!";
+			ELEMENTS.winner_notice.hidden = false;
+		} else if (result == RESULT.user) {
+			ELEMENTS.winner_notice.innerHTML = "You won!";
+			ELEMENTS.winner_notice.hidden = false;
+		} else if (result == RESULT.tie) {
+			ELEMENTS.winner_notice.innerHTML = "Nobody won!";
+			ELEMENTS.winner_notice.hidden = false;
+		}
+
 		paint();
 	} else {
 		console.error("Error: Illegal turn");
