@@ -33,8 +33,8 @@ Parameter | Value | Description
 
 The rule set coded in `ruleset.json` achieves the following performance:
 
-Total training cycles | 2,500,000 | 100.00 %
---- | --- | ---
-Total wins | 2,186,025 | 87.44 %
-Total ties | 311,764 | 12.47 %
-Total losses | 2,211 | 0.09 %
+| Total training cycles | 5,000,000 | 100.00 %
+| --- | --- | --- |
+| Total wins | 4,373,340 | 87.47 % |
+| Total ties | 624,449 | 12.49 % |
+| Total losses | 2,211 | 0.04 % |
