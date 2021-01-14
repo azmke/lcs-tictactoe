@@ -31,10 +31,18 @@ Parameter | Value | Description
 
 ## Statistics
 
-The rule set coded in `ruleset.json` achieves the following performance:
+The rule set coded in `ruleset.json` achieved the following performance during training:
 
 | Total training cycles | 5,000,000 | 100.00 %
 | --- | --- | --- |
 | Total wins | 4,373,340 | 87.47 % |
 | Total ties | 624,449 | 12.49 % |
 | Total losses | 2,211 | 0.04 % |
+
+A subsequent test run using the same rule set resulted in the following performance:
+
+| Total test cycles | 10,000 | 100.00 %
+| --- | --- | --- |
+| Total wins | 8,759 | 87.59 % |
+| Total ties | 1,241 | 12.41 % |
+| Total losses | 0 | 0.00 % |
