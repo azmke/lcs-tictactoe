@@ -27,7 +27,7 @@ Parameter | Value | Description
 `REWARD_TIE` | n | Sets the highest reward that can be included in the above formula (`REWARD = REWARD_TIE`) for a rule if the game ends in a draw.
 `REWARD_LOSE` | n | Sets the highest penalty that can be included in the above formula (`REWARD = REWARD_LOSE`) for a rule if the bot loses a game.
 `REWARD_DECREASE_RATE` | 0 ... 1 | Only the bot's last move receives the highest reward/punishment. For each additional past move the reward/punishment is multiplied by `(1 - REWARD_DECREASE_RATE)`. A higher decrease rate leads to a faster decrease of the reward/punishment for each move further back.
-`TRAINING_CYCLES` | 0 ... n | Sets the number of games the bot will play during the training. A game is considered complete when the bot either wins, loses, or the game ends in a draw.
+`TRAINING_CYCLES` | 1 ... n | Sets the number of games the bot will play during the training. A game is considered complete when the bot either wins, loses, or the game ends in a draw.
 
 ## Statistics
 
