@@ -2,6 +2,10 @@
 
 **lcs-tictactoe** is a tic-tac-toe bot that you cannot defeat, written in JavaScript and based on a learning classifier system.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50206261/104651776-685f9d80-56b8-11eb-88f3-a624a39aa337.gif" alt="Screenshot" />
+</p>
+
 ## I just want to play!
 
 In case you just want to play and find out what this tic-tac-toe bot is really capable of, we have something prepared for you. We trained the bot for a very long time and compiled the rule set into a single file that you can easily import.
