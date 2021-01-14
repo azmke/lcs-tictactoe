@@ -79,32 +79,23 @@ const move_computer = () => {
 		}
 	}
 
-	let actionset = [],
-		action = null;
+	let actionset = [];
 
 	if (matchset.length > 0) {
 		let reward_max = 0;
 
 		for (let pos_i = 0; pos_i < GAME.state.length; pos_i++) {
-			let set = [],
-				rewards_sum = 0;
-
-			for (let rule of matchset) {
-				if (rule.action == pos_i) {
-					set.push(rule);
-					rewards_sum += rule.reward;
+			let rule = matchset.filter(r => r.action == pos_i)[0];
+			if (rule) {
+				if (rule.reward > reward_max) {
+					actionset = [rule];
+					reward_max = rule.reward;
+				} else if (rule.reward == reward_max) {
+					actionset.push(rule);
 				}
-			}
-
-			let rewards_avg = rewards_sum / set.length;
-			if (rewards_avg >= reward_max) {
-				actionset = set;
-				action = pos_i;
-				reward_max = rewards_avg;
 			}
 		}
 	} else {
-		let set = [];
 		for (let pos_i = 0; pos_i < GAME.state.length; pos_i++) {
 			if (GAME.state[pos_i] == " ") {	
 				let rule = {
@@ -113,18 +104,16 @@ const move_computer = () => {
 					reward: REWARD.default
 				};
 
-				set.push(rule);
+				actionset.push(rule);
 				GAME.ruleset.push(rule);
 			}
 		}
-
-		let rule = set[Math.floor(Math.random() * set.length)];
-		actionset.push(rule);
-		action = rule.action;
 	}
 
-	GAME.actions.unshift(actionset);
-	GAME.state = GAME.state.replaceAt(action, PLAYER.computer);
+	let rule = actionset[Math.floor(Math.random() * actionset.length)];
+
+	GAME.actions.unshift(rule);
+	GAME.state = GAME.state.replaceAt(rule.action, PLAYER.computer);
 }
 
 const move_random = () => {
@@ -166,12 +155,10 @@ const get_result = () => {
 }
 
 const reward = (reward) => {
-	for (let actionset of GAME.actions) {
-		for (let rule of actionset) {
-			rule.reward = (1 - REWARD.learnrate) * rule.reward + REWARD.learnrate * reward;
-			if (rule.reward < 0) {
-				rule.reward = 0;
-			}
+	for (let rule of GAME.actions) {
+		rule.reward = (1 - REWARD.learnrate) * rule.reward + REWARD.learnrate * reward;
+		if (rule.reward < 0) {
+			rule.reward = 0;
 		}
 		reward *= (1 - REWARD.decrease_rate);
 	}
