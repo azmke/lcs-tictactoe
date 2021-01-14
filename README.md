@@ -1,7 +1,20 @@
 # lcs-tictactoe
 
-**lcs-tictactoe** is a JavaScript snippet that uses a learning classifier system to create a tic-tac-toe bot that you cannot defeat. Try it 😉
+**lcs-tictactoe** is a tic-tac-toe bot that you cannot defeat, written in JavaScript and based on a learning classifier system.
+
+## I just want to play!
+
+In case you just want to play and find out what this tic-tac-toe bot is really capable of, we have something prepared for you. We trained the bot for a very long time and compiled the ruleset into a single file that you can easily import.
+
+1. Open the `index.html` file in a browser of your choice.
+2. Under **Import rule set** click on **Choose file** and select the `ruleset.json` file.
+3. Click on **Open file**.
+4. Start playing!
 
 ## Statistics
 
-<img src="https://user-images.githubusercontent.com/50206261/104583613-a087c180-5661-11eb-9460-df812a699ff8.png" alt="Anzahl nicht verlorener Spiele / Trainingszyklen" width="600" />
+| Total training cycles | 2,500,000 | 100.00 %
+| --- | --- | --- |
+| Total wins | 2,186,025 | 87.44 % |
+| Total ties | 311,764 | 12.47 % |
+| Total losses | 2,211 | 0.09 % |

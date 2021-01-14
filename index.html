@@ -17,8 +17,8 @@
 		<canvas width="300" height="300" id="playground"></canvas>
 
 		<div class="flex">
-			<div>You: <span class="turn">😀</span> <span id="losses">0</span></div>
-			<div>Computer: <span class="turn">🤖</span> <span id="wins">0</span></div>
+			<div>You: 😀 <span id="play-user">0</span></div>
+			<div>Computer: 🤖 <span id="play-computer">0</span></div>
 		</div>
 
 		<h2>Train the model</h2>
@@ -81,32 +81,23 @@
 			<div class="flex">
 				<div class="flex">
 					<label for="wins-total">Wins:</label>
-					<span id="wins-total">0</span>
+					<span id="wins-total">0.00 %</span>
 				</div>
 			</div>
 			<div class="flex">
 				<div class="flex">
 					<label for="ties-total">Ties:</label>
-					<span id="ties-total">0</span>
+					<span id="ties-total">0.00 %</span>
 				</div>
 			</div>
 			<div class="flex">
 				<div class="flex">
 					<label for="losses-total">Losses:</label>
-					<span id="losses-total">0</span>
+					<span id="losses-total">0.00 %</span>
 				</div>
 			</div>
 		</div>
-		<!--<div>
-			<label for="wins">Wins</label>
-			<span id="wins">9871</span>
 
-			<label for="ties">Ties</label>
-			<span id="ties">1028</span>
-
-			<label for="losses">Losses</label>
-			<span id="losses">212</span>
-		</div>-->
 		<h2>Advanced options</h2>
 		<div>
 			<div class="flex">
@@ -116,20 +107,20 @@
 			<div class="flex">
 				<label for="button-import">Import rule set:</label>
 				<div>
-					<input type="file" id="file">
+					<input type="file" accept=".json" id="input-file">
 					<button id="button-import">Open file</button>
 				</div>
 			</div>
 			<div class="flex">
 				<label for="button-export">Export rule set</label>
 				<div>
-					<button id="button-export">Save as</button>
+					<button id="button-export">Download</button>
 				</div>
 			</div>
 			<div class="flex">
 				<label for="button-reset">Delete rule set:</label>
 				<div>
-					<button for="button-reset">Reset</button>
+					<button id="button-reset">Reset</button>
 				</div>
 			</div>
 		</div>

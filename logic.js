@@ -33,8 +33,12 @@ let GAME = {
 	turn: PLAYER.user
 }
 
-String.prototype.replaceAt = function(index, replacement) {
-	return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+const update_state = function(index, player) {
+	if (GAME.state[index] !== " " || player.length !== 1) {
+		console.error("Error: Illegal turn");
+	} else {
+		GAME.state = GAME.state.substr(0, index) + player + GAME.state.substr(index + 1);
+	}
 };
 
 const train = (cycles = 1000) => {
@@ -113,7 +117,7 @@ const move_computer = () => {
 	let rule = actionset[Math.floor(Math.random() * actionset.length)];
 
 	GAME.actions.unshift(rule);
-	GAME.state = GAME.state.replaceAt(rule.action, PLAYER.computer);
+	update_state(rule.action, PLAYER.computer);
 }
 
 const move_random = () => {
@@ -125,7 +129,7 @@ const move_random = () => {
 	}
 
 	let action = empty_cells[Math.floor(Math.random() * empty_cells.length)];
-	GAME.state = GAME.state.replaceAt(action, PLAYER.user);
+	update_state(action, PLAYER.user);
 }
 
 const get_result = () => {
