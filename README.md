@@ -24,7 +24,7 @@ Parameter | Value | Description
 `LEARNING_RATE` | 0 ... 1 | To determine the new reward of a rule, the formula `NEW_REWARD = (1 - LEARNING_RATE) * OLD_REWARD + LEARRNING_RATE * REWARD` is used. A higher learning rate leads to a faster change of a rule's reward.
 `REWARD_DEFAULT` | n | Sets the default reward for a rule that is added to the rule set for the first time.
 `REWARD_WIN` | n | Sets the highest reward that can be included in the above formula (`REWARD = REWARD_WIN`) for a rule if the bot wins a game.
-`REWARD_TIE` | n | Sets the highest reward that can be included in the above formula (`REWARD = REWARD_TIE`) for a rule if the game ends in a draw.
+`REWARD_TIE` | n | Sets the highest reward that can be included in the above formula (`REWARD = REWARD_TIE`) for a rule if a game ends in a draw.
 `REWARD_LOSE` | n | Sets the highest penalty that can be included in the above formula (`REWARD = REWARD_LOSE`) for a rule if the bot loses a game.
 `REWARD_DECREASE_RATE` | 0 ... 1 | Only the bot's last move receives the highest reward/punishment. For each additional past move the reward/punishment is multiplied by `(1 - REWARD_DECREASE_RATE)`. A higher decrease rate leads to a faster decrease of the reward/punishment for each move further back.
 `TRAINING_CYCLES` | 1 ... n | Sets the number of games the bot will play during the training. A game is considered complete when the bot either wins, loses, or the game ends in a draw.
