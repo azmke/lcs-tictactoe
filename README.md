@@ -4,7 +4,7 @@
 
 ## I just want to play!
 
-In case you just want to play and find out what this tic-tac-toe bot is really capable of, we have something prepared for you. We trained the bot for a very long time and compiled the ruleset into a single file that you can easily import.
+In case you just want to play and find out what this tic-tac-toe bot is really capable of, we have something prepared for you. We trained the bot for a very long time and compiled the rule set into a single file that you can easily import.
 
 1. Open the `index.html` file in a browser of your choice.
 2. Under **Import rule set** click on **Choose file** and select the `ruleset.json` file.
